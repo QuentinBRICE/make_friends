@@ -1,0 +1,8 @@
+<%= link_to "Create an advertisement", new_advertisement_path(@advertisement) %>
+<ul>
+  <% @advertisements.each do |advertisement| %>
+    <li><%= advertisement.title %></li>
+    <li><%= advertisement.description %></li>
+    <li><%= advertisement.price %></li>
+  <% end %>
+</ul>
