@@ -1,5 +1,5 @@
 class Advertisement < ApplicationRecord
+  belongs_to :user, optional: true  
   validates :date, presence: true
-  belongs_to :user
   has_many :bookings
 end
