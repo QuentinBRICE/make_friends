@@ -1,5 +1,9 @@
 class AdvertisementsController < ApplicationController
-  
+
+  def index
+    @advertisements = Advertisement.all
+  end
+
   def show
     @advertisement = Advertisement.find(params[:id])
   end
@@ -10,12 +14,8 @@ class AdvertisementsController < ApplicationController
 
   def create
     @advertisement = Advertisement.new(advertisement_params)
-
-    if @advertisement.save
-      redirect_to @advertisement, notice: "Annonce crée avec succès."
-    else
-      render :new
-    end
+    @advertisement.save
+    redirect_to advertisement_path, notice: "Annonce crée avec succès."
   end
 
   private
