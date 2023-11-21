@@ -23,5 +23,4 @@ class AdvertisementsController < ApplicationController
   def advertisement_params
     params.require(:advertisement).permit(:title, :description, :price, :date)
   end
-
 end
