@@ -19,16 +19,13 @@ puts "Creating users..."
 end
 
 puts 'Creating advertisements...'
- users = User.all
- users.each do |user|
-  5.times do
-    advertisement = Advertisement.new(
-      title: Faker::Hobby.activity,
-      description: Faker::Lorem.paragraph,
-      price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
-      user_id: user.id
-    )
-    advertisement.save!
- end
+10.times do
+  advertisement = Advertisement.new(
+    title: Faker::Hobby.activity,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
+  )
+  advertisement.user = User.all.sample
+  advertisement.save!
 end
 puts 'Finished!'
