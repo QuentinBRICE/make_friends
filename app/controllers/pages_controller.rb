@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
+  def home
+  end
+
   def index
     @advertisements = Advertisement.all
   end
@@ -20,9 +23,6 @@ class PagesController < ApplicationController
   end
 
   def destroy
-  end
-
-  def home
   end
 
   private
