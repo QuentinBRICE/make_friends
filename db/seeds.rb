@@ -3,7 +3,6 @@ require 'faker'
 puts "Cleaning database..."
 Advertisement.destroy_all
 
-<<<<<<< HEAD
 puts "Creating users..."
 5.times do
   user = User.new(
@@ -17,8 +16,7 @@ puts "Creating users..."
   )
   user.save!
 end
-=======
->>>>>>> 2a568c5cb38597d896cc3f35c889ba297589da3e
+
 
 puts 'Creating advertisements...'
 10.times do

@@ -1,7 +1,14 @@
 class AdvertisementsController < ApplicationController
-
   def index
     @advertisements = Advertisement.all
+    @markers = @advertisements.geocoded.map do |advertisement|
+      {
+        lat: advertisement.latitude,
+        lng: advertisement.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {advertisement: advertisement}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
