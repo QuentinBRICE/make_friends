@@ -1,0 +1,7 @@
+<h1> Hello ! </h1>
+
+<% @advertisements.each do |advertisement| %>
+  <%= link_to advertisement_path(advertisement), class:"text-decoration-none" do %>
+    <%= advertisement.title %>
+    <% end %>
+  <% end %>
