@@ -1,5 +1,7 @@
 <h1><%= @advertisement.title %></h1>
-<p>Description: <%= @advertisement.description %></p>
-<p>Prix: <%= @advertisement.price %> $</p>
+<p><strong>Description:</strong> <%= @advertisement.description %></p>
+<p><strong>Prix:</strong> <%= @advertisement.price %></p>
 
-
+<% if @advertisement.photo.attached? %>
+  <%= cl_image_tag @advertisement.photo.key ,  width: 100, height: 100, crop: :fill %>
+<% end %>
