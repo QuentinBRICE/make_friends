@@ -1,5 +1,4 @@
 class AdvertisementsController < ApplicationController
-
   def index
     @advertisements = Advertisement.all
     @markers = @advertisements.geocoded.map do |advertisement|
