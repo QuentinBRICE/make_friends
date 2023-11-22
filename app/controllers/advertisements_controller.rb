@@ -15,7 +15,7 @@ class AdvertisementsController < ApplicationController
   def create
     @advertisement = Advertisement.new(advertisement_params)
     @advertisement.save
-    redirect_to advertisement_path, notice: "Annonce crée avec succès."
+    redirect_to advertisements_path, notice: "Annonce crée avec succès."
   end
 
   private
