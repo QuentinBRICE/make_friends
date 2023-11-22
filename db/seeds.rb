@@ -3,6 +3,21 @@ require 'faker'
 puts "Cleaning database..."
 Advertisement.destroy_all
 
+puts "Creating users..."
+5.times do
+  user = User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    age: Faker::Number.between(from: 18, to: 90),
+    email: Faker::Internet.email,
+    gender: Faker::Gender.binary_type,
+    password: 123,
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code
+  )
+  user.save!
+end
+
+
 puts 'Creating advertisements...'
 10.times do
   advertisement = Advertisement.new(
