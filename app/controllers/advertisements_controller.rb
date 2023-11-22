@@ -13,14 +13,17 @@ class AdvertisementsController < ApplicationController
   end
 
   def create
-    @advertisement = Advertisement.new(advertisement_params)
-    @advertisement.save
-    redirect_to advertisements_path, notice: "Annonce crée avec succès."
+    @advertisement = current_user.advertisements.build(advertisement_params)
+    if @advertisement.save
+      redirect_to @advertisement, notice: "Annonce crée avec succès"
+    else
+      render :new
+    end
   end
 
   private
 
   def advertisement_params
-    params.require(:advertisement).permit(:title, :description, :price, :date)
+    params.require(:advertisement).permit(:title, :description, :price)
   end
 end
