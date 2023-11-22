@@ -1,0 +1,16 @@
+
+<div class="card-container">
+  <% @advertisements.each do |advertisement| %>
+    <div class="card">
+    <% if advertisement.photo.attached? %>
+    <div class="card-image">
+      <%= cl_image_tag advertisement.photo.key, width: 280, height: 100, crop: :fill,class: "image-style" %>
+    </div>
+      <% end %>
+      <p> <%= advertisement.title %></p>
+      <p> <%= advertisement.description %></p>
+      <p> <%= advertisement.price %></p>
+    </div>
+  <% end %>
+</div>
+  <%= link_to "Create an advertisement", new_advertisement_path, class: "btn btn-outline-dark m-3" %>
