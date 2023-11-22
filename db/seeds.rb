@@ -3,7 +3,6 @@ require 'faker'
 puts "Cleaning database..."
 Advertisement.destroy_all
 
-
 puts 'Creating advertisements...'
 10.times do
   advertisement = Advertisement.new(

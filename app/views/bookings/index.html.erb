@@ -1,0 +1,7 @@
+<h1>Mes amis réservés</h1>
+<ul>
+  <% @bookings.each do |booking| %>
+    <p><%= booking.status %>
+    <p><%= booking.total_price %></p>
+  <% end %>
+</ul>
