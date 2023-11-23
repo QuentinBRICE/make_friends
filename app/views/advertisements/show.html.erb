@@ -1,15 +1,24 @@
 <!-- app/views/advertisements/show.html.erb -->
-<div class="advertisement-details">
+<div class="adver">
+<div class="cards-advertisement">
 <% if @advertisement.photo.attached? %>
-    <%= link_to advertisement_path(@advertisement) do %>
+<div class="card-left">
+  <%= link_to advertisement_path(@advertisement) do %>
       <div class="image-container">
         <%= cl_image_tag @advertisement.photo.key, width: 400, height: 300, crop: :fill, class: "advertisement-image" %>
       </div>
     <% end %>
+</div>
   <% end %>
-  <h1><%= @advertisement.title %></h1>
+  <div class="card-right">
+   <h1><%= @advertisement.title %></h1>
   <p class="description"> <%= @advertisement.description %></p>
   <p class="price"><%= @advertisement.price %></p>
-</div>
+  </div>
 
+</div>
+</div>
+<div class="adver">
 <%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
+
+</div>

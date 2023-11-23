@@ -5,7 +5,7 @@ class AdvertisementsController < ApplicationController
       {
         lat: advertisement.latitude,
         lng: advertisement.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {advertisement: advertisement}),
+        info_window_html: render_to_string(partial: "info_window", locals: { advertisement: advertisement }),
         marker_html: render_to_string(partial: "marker")
       }
     end
@@ -16,7 +16,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def new
-    @advertisement = Advertisement.new
+    @advertisement = Advertisement.new(advertisement_params)
   end
 
   def create
