@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'advertisements#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
-  resources :advertisements, only: [:index, :new, :create,:show, :edit, :update] do
+  resources :dashboards, only: [:index, :show, :edit, :destroy]
+  resources :advertisements, only: [:index, :new, :create,:show, :edit, :update, :destroy] do
     resources :bookings, only: [:index, :new, :create]
-    resources :dashboards, only: [:index, :new, :show]
   end
     # resources :bookings, only: [:destroy]
   # root "articles#index"

@@ -2,3 +2,5 @@
 import "@popperjs/core"
 import "bootstrap"
 import "controllers"
+
+$(document).on('turbolinks:load', function (){ alert("turbolinks on load event works") });

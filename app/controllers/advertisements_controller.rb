@@ -13,6 +13,7 @@ class AdvertisementsController < ApplicationController
 
   def show
     @advertisement = Advertisement.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -26,6 +27,12 @@ class AdvertisementsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @advertisement = Advertisement.find(params[:id])
+    @advertisement.destroy
+    redirect_to dashboards_path
   end
 
   private
