@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def new
+    @advertisement = Advertisement.find(params[:advertisement_id])
     @booking = Booking.new
   end
 

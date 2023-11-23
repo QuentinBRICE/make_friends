@@ -1,0 +1,5 @@
+<%= simple_form_for [@advertisement, @booking] do |form| %>
+  <%= form.input :status, label: "Status" %>
+  <%= form.input :total_price, label: "Prix Total" %>
+  <%= form.submit "Faire une réservation" %>
+<% end %>
