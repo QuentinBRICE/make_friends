@@ -12,4 +12,5 @@
   <p class="price"><%= @advertisement.price %></p>
 </div>
 
+<%= link_to "Réserver", new_advertisement_booking_path(@advertisement)%>
 <%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
