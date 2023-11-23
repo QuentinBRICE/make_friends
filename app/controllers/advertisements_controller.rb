@@ -1,4 +1,5 @@
 class AdvertisementsController < ApplicationController
+
   def index
     @advertisements = Advertisement.all
     @markers = @advertisements.geocoded.map do |advertisement|
@@ -13,7 +14,6 @@ class AdvertisementsController < ApplicationController
 
   def show
     @advertisement = Advertisement.find(params[:id])
-    @booking = Booking.new
   end
 
   def new
@@ -32,12 +32,12 @@ class AdvertisementsController < ApplicationController
   def destroy
     @advertisement = Advertisement.find(params[:id])
     @advertisement.destroy
-    redirect_to dashboards_path
+    redirect_to dashboard_path
   end
 
   private
-
   def advertisement_params
     params.require(:advertisement).permit(:title, :description, :price, :photo)
   end
+  
 end
