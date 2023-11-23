@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @advertisement = Advertisement.find(params[:id])
   end
 
