@@ -1,4 +1,5 @@
 class AdvertisementsController < ApplicationController
+
   def index
     @advertisements = Advertisement.all
     @markers = @advertisements.geocoded.map do |advertisement|
@@ -35,8 +36,8 @@ class AdvertisementsController < ApplicationController
   end
 
   private
-
   def advertisement_params
     params.require(:advertisement).permit(:title, :description, :price, :photo)
   end
+  
 end
