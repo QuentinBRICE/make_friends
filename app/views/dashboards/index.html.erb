@@ -1,0 +1,19 @@
+<h3>Mes Réservations</h3>
+
+<div class="card-container">
+  <% @advertisements.each do |advertisement| %>
+    <div class="card">
+      <% if advertisement.photo.attached? %>
+        <%= link_to advertisement_path(advertisement) do %>
+          <div class="card-image">
+            <%= cl_image_tag advertisement.photo.key, width: 280, height: 100, crop: :fill, class: "image-style" %>
+          </div>
+        <% end %>
+      <% end %>
+      <p><%= advertisement.title %></p>
+      <p><%= advertisement.description %></p>
+      <p><%= advertisement.price %></p>
+     
+    </div>
+  <% end %>
+</div>
