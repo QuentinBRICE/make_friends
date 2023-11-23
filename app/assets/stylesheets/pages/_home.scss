@@ -1,5 +1,48 @@
 // Specific CSS for your home-page
+// section service
 a {
   text-decoration: none;
   color: black;
+}
+.service {
+  margin-top: 40px;
+}
+.service .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.service .cards .service-left .title {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+.service .cards .service-left .text {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 400;
+}
+// fin section service
+/******/
+
+
+// section histoire
+
+.histoire {
+  margin-top: 40px;
+}
+.histoire .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.histoire .cards .histoire-left .title {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+.histoire .cards .histoire-left .text {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 400;
 }
