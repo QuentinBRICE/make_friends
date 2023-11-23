@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- app/views/advertisements/show.html.erb -->
 <div class="adver">
 <div class="cards-advertisement">
@@ -15,6 +14,7 @@
    <h1><%= @advertisement.title %></h1>
   <p class="description"> <%= @advertisement.description %></p>
   <p class="price"><%= @advertisement.price %></p>
+  <%= link_to "Réserver", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
   </div>
 
 </div>
@@ -22,35 +22,4 @@
 <div class="adver">
 <%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 
-=======
-
-<h1><%= @advertisement.title %></h1>
-<p><strong>Description:</strong> <%= @advertisement.description %></p>
-<p><strong>Prix:</strong> <%= @advertisement.price %></p>
-
-<div class="adver">
-  <div class="cards-advertisement">
-    <div class="advertisement-details">
-
-      <% if @advertisement.photo.attached? %>
-      <div class="card-left">
-        <%= link_to advertisement_path(@advertisement) do %>
-            <div class="image-container">
-              <%= cl_image_tag @advertisement.photo.key, width: 400, height: 300, crop: :fill, class: "advertisement-image" %>
-            </div>
-          <% end %>
-      </div>
-      <% end %>
-
-      <% if @booking.status.nil? %>
-        <%= form_for @booking, url: advertisement_bookings_path(@advertisement), method: :post do |f| %>
-          <%= f.hidden_field :status, value: 'accepte' %>
-          <%= f.submit 'Faire une réservation', class: 'btn btn-success' %>
-        <% end %>
-
-
-  <%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
-    </div>
-  </div>
->>>>>>> d3c090f96df4e61513b1283e5a83c07f8ef30851
 </div>
