@@ -1,33 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
-  def index
-    @advertisements = Advertisement.all
-  end
-
-  def new
-    @advertisement = Advertisement.new
-  end
-
-  def edit
-  end
-
-  def create
-    @advertisement = Advertisement.new(advertisement_params)
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
-  def home
-  end
-
-  private
-
-  def advertisement_params
-    params.require(:advertisement).permit(:title, :description, :price)
+  def dashboard
+    @user = current_user
+    @my_advertisements = current_user.advertisements
+    @advertisements = current_user.rentals
   end
 end

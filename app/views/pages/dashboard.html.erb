@@ -1,6 +1,4 @@
-<h1>MES ANNONCES</h1>
-
-<h2>Les annonces que j'ai sélectionnée</h2>
+<h2>Favoris</h2>
 <div class="card-container">
   <% @advertisements.each do |advertisement| %>
     <div class="card">
@@ -16,15 +14,12 @@
       <p><%= advertisement.price %></p>
       <%= button_to "Supprimer", advertisement_path(advertisement), method: :delete %>
     </div>
-    <div>
-      <%= link_to "Update", update_path %>
-      </div>
   <% end %>
 </div>
 
-<h2>Les annonces que j'ai crées</h2>
+<h2>Mes annonces</h2>
 <div class="card-container">
-  <% @advertisements.each do |advertisement| %>
+  <% @my_advertisements.each do |advertisement| %>
     <div class="card">
       <% if advertisement.photo.attached? %>
         <%= link_to advertisement_path(advertisement) do %>
@@ -36,6 +31,14 @@
       <p><%= advertisement.title %></p>
       <p><%= advertisement.description %></p>
       <p><%= advertisement.price %></p>
+       <% advertisement.bookings.each do |booking| %>
+        <%= booking.user %>
+        <%= booking.total_price %>
+        <%= booking.status %>
+        <%= link_to booking_accept_booking_path(booking) do %>
+          ACCEPT BOOKING
+        <% end %>
+      <% end %>
       <%= button_to "Supprimer", advertisement_path(advertisement), method: :delete %>
     </div>
   <% end %>
