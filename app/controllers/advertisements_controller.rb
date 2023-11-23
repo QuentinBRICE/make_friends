@@ -10,16 +10,12 @@ class AdvertisementsController < ApplicationController
       }
     end
   end
-
   def show
     @advertisement = Advertisement.find(params[:id])
-    @booking = Booking.new
   end
-
   def new
     @advertisement = Advertisement.new
   end
-
   def create
     @advertisement = current_user.advertisements.build(advertisement_params)
     if @advertisement.save
@@ -28,15 +24,12 @@ class AdvertisementsController < ApplicationController
       render :new
     end
   end
-
   def destroy
     @advertisement = Advertisement.find(params[:id])
     @advertisement.destroy
-    redirect_to dashboards_path
+    redirect_to dashboard_path
   end
-
   private
-
   def advertisement_params
     params.require(:advertisement).permit(:title, :description, :price, :photo)
   end

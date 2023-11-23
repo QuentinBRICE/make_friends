@@ -1,3 +1,5 @@
+
+
 <h2>Favoris</h2>
 <div class="card-container">
   <% @advertisements.each do |advertisement| %>
@@ -35,7 +37,7 @@
         <%= booking.user %>
         <%= booking.total_price %>
         <%= booking.status %>
-        <%= link_to booking_accept_booking_path(booking) do %>
+        <%= button_to "Reserver", booking_accept_booking_path(booking) do %>
           ACCEPT BOOKING
         <% end %>
       <% end %>
