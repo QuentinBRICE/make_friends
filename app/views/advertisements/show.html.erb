@@ -1,4 +1,3 @@
-
 <h1><%= @advertisement.title %></h1>
 <p><strong>Description:</strong> <%= @advertisement.description %></p>
 <p><strong>Prix:</strong> <%= @advertisement.price %></p>
@@ -22,6 +21,8 @@
    <h1><%= @advertisement.title %></h1>
   <p class="description"><%= @advertisement.description %></p>
   <p class="price"> <span>Prix :</span> <%= @advertisement.price %>€</p>
+  <p class="Adresse"><%= @advertisement.address %></p>
+  <%= link_to "Réserver", dashboard_path(@dashboard), class: "btn btn-outline-dark m-3" %>
   <%= link_to "Réserver", dashboard_path(@dashboard), class: "btn btn-outline-dark m-3" %>
       <% end %>
 
