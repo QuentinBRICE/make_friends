@@ -3,26 +3,21 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-
 .card-trip > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
-
 .card-trip h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
-
 .card-trip p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
-
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -30,45 +25,78 @@
   align-items: flex-end;
   position: relative;
 }
-
 .card-trip-infos .card-trip-user {
   position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
 }
-
-/*cards index advertisement*/
-.card-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
+.advertisement-card {
   border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px;
-  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
-
-.card p {
-  margin: 8px;
+.advertisement-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+.advertisement-card-content {
+  padding: 15px;
+}
+.advertisement-card-title {
   text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-
-.card-image {
-  margin-top: 0px;
+.advertisement-card-description {
+  margin-bottom: 10px;
 }
-.card-image .image-style {
+.advertisement-card-price {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.advertisement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/**/
+.advertisement-details {
+  margin-top: 30px;
+  max-width: max-content;
+  height: 50%;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 15px;
+  font-weight: 600;
+}
+p{
+  text-align: center;
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: 400;
+}
+.description, .price {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.image-container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+.advertisement-image {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  object-fit: cover;
 }
-
-.card:hover .image-style {
-  cursor: pointer;
+.advertisement-image:hover {
   transform: scale(1.1);
 }
