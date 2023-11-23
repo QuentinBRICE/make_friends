@@ -12,5 +12,17 @@
   <p class="price"><%= @advertisement.price %></p>
 </div>
 
-<%= link_to "Réserver", new_advertisement_booking_path(@advertisement)%>
+
+<% if @booking.status.nil? %>
+  <%= form_for @booking, url: advertisement_bookings_path(@advertisement), method: :post do |f| %>
+    <%= f.hidden_field :status, value: 'accepte' %>
+    <%= f.submit 'Faire une réservation', class: 'btn btn-success' %>
+  <% end %>
+
+  <%= form_for @booking, url: advertisement_bookings_path(@advertisement), method: :post do |f| %>
+    <%= f.hidden_field :status, value: 'refuse' %>
+    <%= f.submit 'Refuser', class: 'btn btn-danger' %>
+  <% end %>
+<% end %>
+
 <%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
