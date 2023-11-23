@@ -15,6 +15,14 @@
             </div>
           <% end %>
       </div>
+    <% end %>
+</div>
+  <% end %>
+  <div class="card-right">
+   <h1><%= @advertisement.title %></h1>
+  <p class="description"><%= @advertisement.description %></p>
+  <p class="price"> <span>Prix :</span> <%= @advertisement.price %>€</p>
+  <%= link_to "Réserver", dashboards_path(@dashboard), class: "btn btn-outline-dark m-3" %>
       <% end %>
 
       <% if @booking.status.nil? %>
