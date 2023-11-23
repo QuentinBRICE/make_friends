@@ -13,6 +13,7 @@ class AdvertisementsController < ApplicationController
 
   def show
     @advertisement = Advertisement.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
