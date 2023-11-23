@@ -1,31 +1,25 @@
-require 'faker'
 
-puts "Cleaning database..."
+require 'open-uri'
+
 Advertisement.destroy_all
+User.destroy_all
 
-puts "Creating users..."
-5.times do
-  user = User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    age: Faker::Number.between(from: 18, to: 90),
-    email: Faker::Internet.email,
-    gender: Faker::Gender.binary_type,
-    password: 123,
-    phone_number: Faker::PhoneNumber.phone_number_with_country_code
-  )
-  user.save!
-end
+User.create(email: "test@test.test", password: "123456")
 
+advertisement = Advertisement.new(title: 'sortie entre amis', description: "détente avec des gens biens", price: 15, address: "15 Bd des Italiens, 75002 Paris")
+advertisement.user = User.all.sample
+advertisement.photo.attach(
+  io: URI.open('https://img.grouponcdn.com/seocms/41NmtLyPyXHiZ1CYBg6sBMkoEtYN/Friends-eating-together_jpg-1079x648'),
+  filename: 'sortie.jpg', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg' # use the mime type of the attached file here
+)
+advertisement.save!
 
-puts 'Creating advertisements...'
-10.times do
-  advertisement = Advertisement.new(
-    title: Faker::Hobby.activity,
-    description: Faker::Lorem.paragraph,
-    price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
-  )
-  advertisement.user = User.all.sample
-  advertisement.save!
-end
-puts 'Finished!'
+advertisement = Advertisement.new(title: 'bowling entre amis', description: "détente avec des gens biens", price: 20, address: "5 Bd des Italiens, 75002 Paris")
+advertisement.user = User.all.sample
+advertisement.photo.attach(
+  io: URI.open('https://as2.ftcdn.net/v2/jpg/02/10/01/69/1000_F_210016964_RnRplmGfDDzO7iZfn7nd2gcWCyaW2cQK.jpg'),
+  filename: 'bowling.jpg', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg' # use the mime type of the attached file here
+)
+advertisement.save!
