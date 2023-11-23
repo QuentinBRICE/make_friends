@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   resources :dashboards, only: [:index, :show, :edit, :destroy]
-  resources :advertisements, only: [:index, :new, :create,:show, :edit, :update] do
+  resources :advertisements, only: [:index, :new, :create,:show, :edit, :update, :destroy] do
     resources :bookings, only: [:index, :new, :create]
   end
     # resources :bookings, only: [:destroy]
