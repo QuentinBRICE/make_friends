@@ -1,4 +1,4 @@
-<h2>Favoris</h2>
+<h2>Mes annonces</h2>
 <div class="card-container">
   <% @advertisements.each do |advertisement| %>
     <div class="card">
@@ -17,7 +17,7 @@
   <% end %>
 </div>
 
-<h2>Mes annonces</h2>
+<h2>Favoris </h2>
 <div class="card-container">
   <% @my_advertisements.each do |advertisement| %>
     <div class="card">
@@ -36,7 +36,7 @@
         <%= booking.total_price %>
         <%= booking.status %>
         <%= link_to booking_accept_booking_path(booking) do %>
-          ACCEPT BOOKING
+        ACCEPT BOOKING
         <% end %>
       <% end %>
       <%= button_to "Supprimer", advertisement_path(advertisement), method: :delete %>
