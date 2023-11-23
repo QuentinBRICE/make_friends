@@ -21,18 +21,6 @@
   <%= link_to "Réserver", dashboard_path(@dashboard), class: "btn btn-outline-dark m-3" %>
   <p class="Adresse"><%= @advertisement.address %></p>
   <%= link_to "Réserver", dashboard_path(@dashboard), class: "btn btn-outline-dark m-3" %>
-  <%= link_to "Réserver", dashboard_path(@dashboard), class: "btn btn-outline-dark m-3" %>
-      <% end %>
-
-      <% if @booking.status.nil? %>
-        <%= form_for @booking, url: advertisement_bookings_path(@advertisement), method: :post do |f| %>
-          <%= f.hidden_field :status, value: 'accepte' %>
-          <%= f.submit 'Faire une réservation', class: 'btn btn-success' %>
-        <% end %>
-
-
-  <%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
-    </div>
   </div>
 </div>
 </div>

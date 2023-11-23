@@ -17,12 +17,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def accept
-    @booking = Booking.find(params[:booking_id])
-    @booking.status = "Accepted"
-    if @booking.save
-      redirect_to dashboard_path, notice: "Booking accepté !"
-    end
   def update
     @booking = Booking.find(params[:id])
     @booking.update(params[:booking]) # Will raise ActiveModel::ForbiddenAttributesError
