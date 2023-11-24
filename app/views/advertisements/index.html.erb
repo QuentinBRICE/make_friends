@@ -1,4 +1,3 @@
-<%= link_to "Créer une Annonce", new_advertisement_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 <section class="service">
 <div class="cards">
 <div class="service-left">
@@ -96,6 +95,10 @@ Chaque ami disponible à la location est soigneusement vérifié et noté par no
     <%= link_to advertisement_path(advertisement), class: "card-link" do %>
       <div class="card">
         <% if advertisement.photo.attached? %>
+    <%= link_to advertisement_path(advertisement) do %>
+    <div class="card">
+      <% if advertisement.photo.attached? %>
+        <%= link_to advertisement_path(advertisement) do %>
           <div class="card-image">
             <%= cl_image_tag advertisement.photo.key, width: 280, height: 100, crop: :fill, class: "image-style" %>
           </div>
@@ -108,13 +111,21 @@ Chaque ami disponible à la location est soigneusement vérifié et noté par no
         </div>
       </div>
     <% end %>
+
+      <% end %>
+      <p><%= advertisement.title %></p>
+      <p><%= advertisement.description %></p>
+      <p><%= advertisement.price %></p>
+      <%= link_to "Réserver", new_advertisement_booking_path(advertisement), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette annonce?" }, class: "btn btn-outline-dark m-3" %>
+    </div>
   <% end %>
+<% end %>
 </div>
 
 
 
 
-<%= link_to "Create an advertisement", new_advertisement_path(@advertisement), class: "btn btn-outline-dark m-3" %>
+<%= link_to "Créer une annonce", new_advertisement_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
@@ -124,7 +135,7 @@ Chaque ami disponible à la location est soigneusement vérifié et noté par no
 <footer class="footer">
 
 <div class="footer-title">Suivez nous !</div>
-<div class="footer-text">Actuellement le service n’est disponible que sur Paris et <br> en région parisienne , il serra bientôt disponible dans <br> toute la France !</div>
+<div class="footer-text">Actuellement le service n'est disponible que sur Paris et <br> en région parisienne , il serra bientôt disponible dans <br> toute la France !</div>
 <div class="menu">
 <div><i class="fa-brands fa-facebook"></i></div>
 <div><i class="fa-brands fa-instagram"></i></div>
