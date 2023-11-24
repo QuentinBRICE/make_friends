@@ -7,6 +7,10 @@ export default class extends Controller {
 
   static targets = ["address"]
   connect() {
+    console.log("hello from autocomplete controller");
+    // console.log(this.addressTarget); input address
+    // console.log(this.element); div data controller
+    // console.log(this.geocoder); ?
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"
@@ -18,6 +22,7 @@ export default class extends Controller {
   }
 
   #setInputValue(event) {
+    console.log(event.result["place_name"]); // Value de l'input donc l'address
     this.addressTarget.value = event.result["place_name"]
   }
 

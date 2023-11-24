@@ -1,6 +1,5 @@
 <!-- app/views/advertisements/show.html.erb -->
 
-
 <div class="adver">
 <div class="cards-advertisement">
 <% if @advertisement.photo.attached? %>
@@ -18,9 +17,9 @@
   <p class="price"> <span>Prix :</span> <%= @advertisement.price %>€</p>
   <%= link_to "Réserver", dashboard_path(@dashboard), class: "btn btn-outline-dark m-3" %>
   <p class="Adresse"><%= @advertisement.address %></p>
-  </div>
+
 </div>
 </div>
 <div class="adver">
-<%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
+<%= link_to "Revenir aux annonces", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 </div>
