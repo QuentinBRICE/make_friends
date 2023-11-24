@@ -1,9 +1,7 @@
-<h2>Mes réservations</h2>
 
-<%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
-<h2>Mes annonces</h2>
+<%= link_to "Revenir aux annonces", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
+<h2>Mes réservations</h2>
 <div class="card-container">
-  <%= @advertisements %>
   <% @advertisements.each do |advertisement| %>
     <div class="card">
       <% if advertisement.photo.attached? %>
