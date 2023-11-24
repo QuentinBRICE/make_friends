@@ -12,6 +12,8 @@ module MakeFriends
       generate.assets false
       generate.helper false
       generate.test_framework :test_unit, fixture: false
+      config.active_record.default_timezone = :utc
+      config.time_zone = 'Paris'
     end
 
     # Initialize configuration defaults for originally generated Rails version.
