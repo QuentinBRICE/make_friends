@@ -9,22 +9,22 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.advertisement = @advertisement
     @booking.user = current_user
-
-    if @booking.save
+    @booking.save
+    if @booking.save!
       redirect_to dashboard_path(tab: "mes_annonces"), notice: 'Annonce créee avec succès.'
     else
-      redirect_to advertisement_path, notice: 'Reservation was successfully declined.'
+      redirect_to advertisements_path, notice: 'Reservation was successfully declined.'
     end
   end
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(params[:booking]) # Will raise ActiveModel::ForbiddenAttributesError
+    @booking.update(params[:booking])
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:status, :total_price)
   end
 end

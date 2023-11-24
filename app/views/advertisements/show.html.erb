@@ -13,10 +13,24 @@
    <h1><%= @advertisement.title %></h1>
   <p class="description"><%= @advertisement.description %></p>
   <p class="price"> <span>Prix :</span> <%= @advertisement.price %>€</p>
+  </div>
   <p class="Adresse"><%= @advertisement.address %></p>
+  <%= link_to "Réserver", new_advertisement_booking_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 
 </div>
 </div>
 <div class="adver">
-<%= link_to "Revenir aux annonces", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
+<%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 </div>
+<footer class="footer">
+
+<div class="footer-title">Suivez nous !</div>
+<div class="footer-text">Actuellement le service n’est disponible que sur Paris et <br> en région parisienne , il serra bientôt disponible dans <br> toute la France !</div>
+<div class="menu">
+<div><i class="fa-brands fa-facebook"></i></div>
+<div><i class="fa-brands fa-instagram"></i></div>
+<div><i class="fa-solid fa-x"></i></div>
+</div>
+
+<div class="copy">© 2023 Tous droits réservés par Make Friends</div>
+</footer>
