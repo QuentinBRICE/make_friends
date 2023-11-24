@@ -92,6 +92,9 @@ Chaque ami disponible à la location est soigneusement vérifié et noté par no
 
 <div class="advertisements-container">
   <% @advertisements.each do |advertisement| %>
+    <%= link_to advertisement_path(advertisement), class: "card-link" do %>
+      <div class="card">
+        <% if advertisement.photo.attached? %>
     <%= link_to advertisement_path(advertisement) do %>
     <div class="card">
       <% if advertisement.photo.attached? %>
@@ -100,6 +103,15 @@ Chaque ami disponible à la location est soigneusement vérifié et noté par no
             <%= cl_image_tag advertisement.photo.key, width: 280, height: 100, crop: :fill, class: "image-style" %>
           </div>
         <% end %>
+        <div class="card-body">
+          <p><%= advertisement.title %></p>
+          <p><%= advertisement.description %></p>
+          <p><%= advertisement.price %></p>
+          <%= link_to "Réserver", dashboard_path(advertisement), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette annonce?" }, class: "btn btn-outline-dark m-3" %>
+        </div>
+      </div>
+    <% end %>
+
       <% end %>
       <p><%= advertisement.title %></p>
       <p><%= advertisement.description %></p>
@@ -109,6 +121,7 @@ Chaque ami disponible à la location est soigneusement vérifié et noté par no
   <% end %>
 <% end %>
 </div>
+
 
 
 

@@ -184,6 +184,8 @@ a {
 
 
 .footer {
+  padding: 15px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,4 +218,8 @@ a {
   align-items: center;
   gap: 30px;
   font-size: 30px;
+}
+.footer .menu i:hover {
+  cursor: pointer;
+  color: rgb(58, 58, 58);;
 }
