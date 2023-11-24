@@ -14,10 +14,9 @@
   <p class="description"><%= @advertisement.description %></p>
   <p class="price"> <span>Prix :</span> <%= @advertisement.price %>€</p>
   <p class="Adresse"><%= @advertisement.address %></p>
-  <%= link_to "Réserver", dashboard_path(@dashboard), class: "btn btn-outline-dark m-3" %>
-  </div>
+
 </div>
 </div>
 <div class="adver">
-<%= link_to "Return to advertisements", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
+<%= link_to "Revenir aux annonces", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 </div>
