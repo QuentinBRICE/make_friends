@@ -1,7 +1,6 @@
-
 <%= link_to "Revenir aux annonces", advertisements_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 <h2>Mes réservations</h2>
-<div class="card-container">
+<div class="card-container-res">
   <% @advertisements.each do |advertisement| %>
     <div class="card">
       <% if advertisement.photo.attached? %>
@@ -13,7 +12,7 @@
       <% end %>
       <p><%= advertisement.title %></p>
       <p><%= advertisement.description %></p>
-      <p><%= advertisement.price %></p>
+      <p>Prix : <%= advertisement.price %> €</p> 
       <%= button_to "Supprimer", advertisement_path(advertisement), method: :delete %>
     </div>
   <% end %>
@@ -32,16 +31,36 @@
       <% end %>
       <p><%= advertisement.title %></p>
       <p><%= advertisement.description %></p>
-      <p><%= advertisement.price %></p>
+      <p>Prix : <%= advertisement.price %> €</p>
        <% advertisement.bookings.each do |booking| %>
-        <%= booking.user %>
         <%= booking.total_price %>
-        <%= booking.status %>
-        <%= link_to booking_accept_booking_path(booking) do %>
-        ACCEPT BOOKING
-        <% end %>
       <% end %>
       <%= button_to "Supprimer", advertisement_path(advertisement), method: :delete %>
     </div>
   <% end %>
 </div>
+<style>
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 400px;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.card-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.image-style {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
