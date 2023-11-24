@@ -4,15 +4,32 @@ class DashboardsController < ApplicationController
   end
 
   def show
-    @advertisement = Advertisement.find(params[:id])
+    @user = current_user
+    @advertisements = current_user.advertisements
   end
 
-  def create
-    @advertisement = current_user.advertisements.build(advertisement_params)
-    if @advertisement.save
-      redirect_to @advertisement, notice: "Annonce crée avec succès"
-    else
-      render :new
-    end
+  # def edit
+  #   @advertisements = Advertisement.all
+  # end
+
+  # def update
+  #   @advertisement = Advertisement.update(params[:id])
+  #   if @advertisement.update(advertisement_params)
+  #     redirect_to_dashboard_path(@dashboard)
+  #   else
+  #     render 'edit'
+  #   end
+  # end
+
+  # def destroy
+  #   @advertisement = Advertisement.find(params[:id])
+  #   @advertisement.destroy
+  #   redirect_to dashboard_path, notice: "Annonce supprimée avec succès.", status: :see_other
+  # end
+
+  private
+
+  def advertisement_params
+    params.require(:advertisement).permit(:title, :description, :price)
   end
 end

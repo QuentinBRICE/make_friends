@@ -3,10 +3,9 @@
   <%= form.input :description, label: "Description" %>
   <%= form.input :price, label: "Prix" %>
   <%= form.input :address, label: "Address",
-    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-   %>
-    <%= form.input :photo, label: "Photo", as: :file %>
+    input_html: {data: {address_autocomplete_target: "adresse"}, class: "d-none"},
+    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+  <%= form.input :photo, label: "Photo", as: :file %>
   <div>
     <%= form.submit "Créer l'annonce" %>
   </div>

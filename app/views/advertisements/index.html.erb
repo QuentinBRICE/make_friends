@@ -1,6 +1,77 @@
-
-<div class="card-container">
+<section class="service">
+<div class="cards">
+<div class="service-left">
+<p class="title">Notre Service</p>
+<p class="text">Bienvenue sur Make Friends, là où rencontrer des gens pour s'amuser n'a jamais été aussi facile ! <br> <br>
+Nous savons que l'amitié est précieuse, c'est pourquoi nous vous offrons la possibilité de créer des liens et de vivre des moments inoubliables avec de véritables amis, sans les contraintes de l'engagement à long terme</p>
+</div>
+<div class="service-right">
+  <%= image_tag "photo-1543807535-eceef0bc6599.avif" %>
+</div>
+</div>
+</section>
+<%# section histoire %>
+<section class="histoire">
+<div class="cards">
+<div class="histoire-right">
+  <%= image_tag "photo-1511376979163-f804dff7ad7b.avif" %>
+</div>
+<div class="histoire-left">
+  <p class="title">Notre Histoire</p>
+  <p class="text">Make Friends a été créé avec une vision simple : rendre l'amitié accessible à tous <br><br>
+    Nous avons été inspiré par l'idée qu'il est parfois difficile de trouver des amis pour partager des activités, discuter ou simplement passer du temps de qualité. Il a compris que de nombreuses personnes traversent des périodes de solitude et de déconnexion, même au sein de sociétés de plus en plus connectées. <br><br>
+    C'est pourquoi Make Friends a vu le jour, avec pour objectif de faire de l'amitié une expérience accessible à tout moment. Nous croyons que l'amitié n'a pas besoin d'être compliquée, qu'elle peut être fluide et adaptée à vos besoins.</p>
+</div>
+</div>
+<%# section engagemant %>
+</section>
+<section class="engagemant">
+<div class="title-engagement">Notre engagement</div>
+<div class="cards">
+<div class="eng-right">
+  <%= image_tag "photo-1600880292089-90a7e086ee0c.avif" %>
+</div>
+<div class="eng-left">
+  <p class="text">Chez Make Friends, nous nous engageons à créer un environnement sécurisé et respectueux pour tous nos utilisateurs. <br><br>
+  Chaque ami disponible à la location est soigneusement vérifié et noté par notre communauté, garantissant ainsi des interactions positives et agréables. Nous promouvons la diversité, l'inclusion et le respect mutuel au sein de notre communauté.</p>
+</div>
+</div>
+</section>
+<%# section offre  %>
+<section class="offre">
+<div class="title-offre">Notre offre</div>
+<div class="cards">
+<div class="offre-right">
+  <%= image_tag "loonapix_1700817097349732546.png" %>
+</div>
+<div class="offre-left">
+<div class="title-of">Une compagnie instantanée</div>
+<p class="text">Louer un ami permet d'avoir de la compagnie <br> instantanée pour des événements, des sorties <br> ou simplement pour discuter. Cela peut être <br> particulièrement bénéfique pour les personnes <br> qui se sentent seules ou qui souhaitent <br> rencontrer de nouvelles personnes.</p>
+</div>
+</div>
+<div class="cards">
+<div class="offre-right">
+  <%= image_tag "loonapix_170081704628459202.png" %>
+</div>
+<div class="offre-left">
+<div class="title-of">Confidence & conseils</div>
+<p class="text">Un ami de location peut être une oreille <br> attentive et bienveillante, prête à écouter vos <br> préoccupations et à vous donner des conseils <br> impartiaux. C'est une opportunité d'exprimer <br> ses pensées et ses émotions en toute confiance.</p>
+</div>
+</div>
+<div class="cards">
+<div class="offre-right">
+  <%= image_tag "loonapix_17008169273227967720.png" %>
+</div>
+<div class="offre-left">
+<div class="title-of">Expérience Sociale</div>
+<p class="text">Si vous participez à des événements sociaux <br> ou à des activités où vous ne connaissez <br> personne, avoir un ami de location peut vous <br>  aider à vous sentir plus à l'aise et à vous <br> intégrer plus facilement dans le groupe.</p>
+</div>
+</div>
+</section>
+ <%# card  %>
+<div class="advertisements-container">
   <% @advertisements.each do |advertisement| %>
+    <%= link_to advertisement_path(advertisement) do %>
     <div class="card">
       <% if advertisement.photo.attached? %>
         <%= link_to advertisement_path(advertisement) do %>
@@ -12,25 +83,26 @@
       <p><%= advertisement.title %></p>
       <p><%= advertisement.description %></p>
       <p><%= advertisement.price %></p>
+      <%= link_to "Réserver", new_advertisement_booking_path(advertisement), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette annonce?" }, class: "btn btn-outline-dark m-3" %>
     </div>
   <% end %>
+<% end %>
 </div>
-
-<%= link_to "Create an advertisement", new_advertisement_path(@advertisement), class: "btn btn-outline-dark m-3" %>
+<%= link_to "Créer une annonce", new_advertisement_path(@advertisement), class: "btn btn-outline-dark m-3" %>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-<%# <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div> %>
+<footer class="footer">
+<div class="footer-title">Suivez nous !</div>
+<div class="footer-text">Actuellement le service n'est disponible que sur Paris et <br> en région parisienne , il serra bientôt disponible dans <br> toute la France !</div>
+<div class="menu">
+<div><i class="fa-brands fa-facebook"></i></div>
+<div><i class="fa-brands fa-instagram"></i></div>
+<div><i class="fa-solid fa-x"></i></div>
+</div>
+<div class="copy">© 2023 Tous droits réservés par Make Friends</div>
+</footer>

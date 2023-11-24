@@ -10,7 +10,7 @@ class AdvertisementsController < ApplicationController
       }
     end
   end
-
+  
   def show
     @advertisement = Advertisement.find(params[:id])
   end
@@ -28,9 +28,14 @@ class AdvertisementsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    @advertisement = Advertisement.find(params[:id])
+    @advertisement.destroy
+    redirect_to dashboard_path
+  end
 
+  private
   def advertisement_params
-    params.require(:advertisement).permit(:title, :description, :price, :photo)
+    params.require(:advertisement).permit(:title, :description, :price, :photo, :address)
   end
 end
