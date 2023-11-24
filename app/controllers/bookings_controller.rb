@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.save
     if @booking.save!
-      redirect_to dashboard_path(tab: "mes_annonces"), notice: 'Annonce créee avec succès.'
+      redirect_to dashboard_path(tab: 'mes_annonces'), notice: 'Annonce créee avec succès.'
     else
       redirect_to advertisements_path, notice: 'Reservation was successfully declined.'
     end
